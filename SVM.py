@@ -40,5 +40,9 @@ plt.ylabel("Count")
 plt.show()
 
 #plottin the data pandas
-data_juanDavid.plot(kind= 'scatter', x='clump', y='size', color='red')
+plt.figure(figsize=(10, 5))
+data_juanDavid['class'].value_counts().plot(kind='bar', color='green')
+plt.title("Distribution of Classes")
+plt.xlabel("Class (2=Benign, 4=Malignant)")
+plt.ylabel("Count")
 plt.show()
