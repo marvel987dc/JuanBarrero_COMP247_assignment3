@@ -63,5 +63,67 @@ from sklearn.metrics.pairwise import linear_kernel
 clf_Juan  = SVC(kernel='linear', C = 0.1)
 clf_Juan.fit(X_train, y_train)
 
+#accuracy score of the model
+from sklearn.metrics import accuracy_score
+y_pred = clf_Juan.predict(X_test)
+accuracy = accuracy_score(y_test, y_pred)
+print("Accuracy: ", accuracy)
+
+#accuracy matrix now using the rbc Kernel
+from sklearn.metrics import confusion_matrix
+clf_Juan = SVC(kernel='rbf', C = 0.1)
+#we are going to use the same training and testing data
+clf_Juan.fit(X_train, y_train)
+y_pred = clf_Juan.predict(X_test)
+#confusion matrix of the model using the rbf kernel
+conf_matrix = confusion_matrix(y_test, y_pred)
+print("Confusion Matrix: \n", conf_matrix)
+
+#split data into 80% training and 20% testing
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=seed)
+#Regularization parameter without te C parameter
+svm_rbf = SVC(kernel='rbf')
+svm_rbf.fit(X_train, y_train)
+
+# Make predictions
+y_pred = svm_rbf.predict(X_test)
+
+# Evaluate the model
+print("Confusion Matrix with rbf:\n", confusion_matrix(y_test, y_pred))
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=seed)
+#Regularization parameter without te C parameter
+svm_rbf = SVC(kernel='rbf')
+svm_rbf.fit(X_train, y_train)
+
+# Make predictions
+y_pred = svm_rbf.predict(X_test)
+
+# Evaluate the model
+print("Confusion Matrix with rbf:\n", confusion_matrix(y_test, y_pred))
+################
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=seed)
+#Regularization parameter without te C parameter
+svm_rbf = SVC(kernel='poly')
+svm_rbf.fit(X_train, y_train)
+
+# Make predictions
+y_pred = svm_rbf.predict(X_test)
+
+# Evaluate the model
+print("Confusion Matrix with Poly:\n", confusion_matrix(y_test, y_pred))
+################
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=seed)
+#Regularization parameter without te C parameter
+svm_rbf = SVC(kernel='sigmoid')
+svm_rbf.fit(X_train, y_train)
+
+# Make predictions
+y_pred = svm_rbf.predict(X_test)
+
+# Evaluate the model
+print("Confusion Matrix with rbf:\n", confusion_matrix(y_test, y_pred))
+
+
 
 
