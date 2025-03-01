@@ -91,6 +91,7 @@ y_pred = svm_rbf.predict(X_test)
 # Evaluate the model
 print("Confusion Matrix with rbf:\n", confusion_matrix(y_test, y_pred))
 
+#Using the rbf kernel
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=seed)
 #Regularization parameter without te C parameter
 svm_rbf = SVC(kernel='rbf')
@@ -102,6 +103,7 @@ y_pred = svm_rbf.predict(X_test)
 # Evaluate the model
 print("Confusion Matrix with rbf:\n", confusion_matrix(y_test, y_pred))
 ################
+#using the poly kernel
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=seed)
 #Regularization parameter without te C parameter
 svm_rbf = SVC(kernel='poly')
@@ -113,6 +115,7 @@ y_pred = svm_rbf.predict(X_test)
 # Evaluate the model
 print("Confusion Matrix with Poly:\n", confusion_matrix(y_test, y_pred))
 ################
+#using the sigmoid kernel
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=seed)
 #Regularization parameter without te C parameter
 svm_rbf = SVC(kernel='sigmoid')
@@ -122,7 +125,7 @@ svm_rbf.fit(X_train, y_train)
 y_pred = svm_rbf.predict(X_test)
 
 # Evaluate the model
-print("Confusion Matrix with rbf:\n", confusion_matrix(y_test, y_pred))
+print("Confusion Matrix with sigmoid:\n", confusion_matrix(y_test, y_pred))
 
 
 
