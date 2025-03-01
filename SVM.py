@@ -12,7 +12,7 @@ print("\nColumn and names: ", data_juanDavid.columns, data_juanDavid.dtypes)
 print("\nmissing values: ", data_juanDavid.isnull().sum())
 print("\nStatistic of numeric fields: ", data_juanDavid.describe())
 
-#preprocessing and visualization
+#preprocessing and visualization of the data
 data_juanDavid['bare'] = data_juanDavid['bare'].replace('?', np.nan)
 #fill any missing value with the median of the column
 
@@ -41,13 +41,13 @@ plt.show()
 
 #plottin the data pandas
 plt.figure(figsize=(10, 5))
-#bar plot to vizualize teh distribution of values int he 'Class' column
+
 data_juanDavid['class'].value_counts().plot(kind='bar', color='green')
 plt.title("Distribution of Classes")
 plt.xlabel("Class (2=Benign, 4=Malignant)")
 plt.ylabel("Count")
 plt.show()
-#Separate the features from the class.
+
 X = data_juanDavid.drop('class', axis=1)
 y = data_juanDavid['class']
 #splitting the data 80% training and 20% testing
@@ -63,7 +63,6 @@ from sklearn.metrics.pairwise import linear_kernel
 clf_Juan  = SVC(kernel='linear', C = 0.1)
 clf_Juan.fit(X_train, y_train)
 
-#accuracy score of the model
 from sklearn.metrics import accuracy_score
 y_pred = clf_Juan.predict(X_test)
 accuracy = accuracy_score(y_test, y_pred)
@@ -97,7 +96,6 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 svm_rbf = SVC(kernel='rbf')
 svm_rbf.fit(X_train, y_train)
 
-# Make predictions
 y_pred = svm_rbf.predict(X_test)
 
 # Evaluate the model
@@ -109,7 +107,6 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 svm_rbf = SVC(kernel='poly')
 svm_rbf.fit(X_train, y_train)
 
-# Make predictions
 y_pred = svm_rbf.predict(X_test)
 
 # Evaluate the model
@@ -121,7 +118,6 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 svm_rbf = SVC(kernel='sigmoid')
 svm_rbf.fit(X_train, y_train)
 
-# Make predictions
 y_pred = svm_rbf.predict(X_test)
 
 # Evaluate the model
